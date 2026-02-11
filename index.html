@@ -4,169 +4,138 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Engineering Placement Prep</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:#f4f6f9;
-    color:#333;
-    line-height:1.6;
+background:#f4f6f9;
+color:#333;
 }
 
-/* HEADER */
 header{
-    background:#0d1b2a;
-    color:white;
-    padding:18px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+background:#0d1b2a;
+color:white;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 nav a{
-    color:white;
-    margin-left:25px;
-    text-decoration:none;
-    transition:0.3s;
+color:white;
+margin-left:20px;
+text-decoration:none;
+cursor:pointer;
 }
 
 nav a:hover{
-    color:#e63946;
+color:#e63946;
 }
 
-/* HERO */
+.section{
+padding:70px 8%;
+}
+
 .hero{
-    background:linear-gradient(135deg,#1b263b,#415a77);
-    color:white;
-    padding:100px 8%;
-    text-align:center;
-}
-
-.hero h2{
-    font-size:42px;
-    margin-bottom:20px;
+background:linear-gradient(135deg,#1b263b,#415a77);
+color:white;
+text-align:center;
+padding:100px 8%;
 }
 
 .btn{
-    padding:10px 22px;
-    background:#e63946;
-    color:white;
-    text-decoration:none;
-    border-radius:5px;
-    display:inline-block;
-    margin-top:15px;
-    transition:0.3s;
+padding:10px 20px;
+background:#e63946;
+color:white;
+border:none;
+cursor:pointer;
+border-radius:5px;
+margin-top:10px;
+display:inline-block;
+text-decoration:none;
 }
 
 .btn:hover{
-    background:#c1121f;
-    transform:translateY(-3px);
-}
-
-/* SECTION */
-.section{
-    padding:70px 8%;
-}
-
-.section h2{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-/* CARDS */
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
+background:#c1121f;
 }
 
 .card{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
-    transition:0.3s;
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+margin-bottom:30px;
 }
 
-.card:hover{
-    transform:translateY(-6px);
+.price{
+color:#e63946;
+font-weight:700;
+margin:10px 0;
 }
 
-.card h3{
-    margin-bottom:15px;
+input{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:5px;
 }
 
-/* SUBJECT DETAILS */
-details{
-    margin-bottom:15px;
+.hidden{
+display:none;
 }
 
-summary{
-    font-weight:600;
-    cursor:pointer;
-    padding:8px 0;
+.dashboard-box{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+margin-bottom:20px;
 }
 
-details ul{
-    margin-left:20px;
-    margin-top:8px;
+.faculty-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
 }
 
-details ul li{
-    margin-bottom:6px;
+.faculty{
+background:white;
+padding:20px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* FOUNDERS */
-.founder-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:30px;
+.payment-box{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+max-width:400px;
+margin:auto;
+text-align:center;
 }
 
-.founder{
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    text-align:center;
-    box-shadow:0 8px 25px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.founder:hover{
-    transform:translateY(-6px);
-}
-
-.founder a{
-    display:inline-block;
-    margin-top:15px;
-    padding:8px 15px;
-    background:#0077b5;
-    color:white;
-    text-decoration:none;
-    border-radius:5px;
-}
-
-/* FOOTER */
 footer{
-    background:#0d1b2a;
-    color:white;
-    text-align:center;
-    padding:20px;
+background:#0d1b2a;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
 }
 
-/* RESPONSIVE */
 @media(max-width:900px){
-    .founder-grid{
-        grid-template-columns:1fr;
-    }
+.faculty-grid{
+grid-template-columns:1fr;
+}
 }
 </style>
 </head>
@@ -174,225 +143,167 @@ footer{
 <body>
 
 <header>
-    <h1>Engineering Placement Prep</h1>
-    <nav>
-        <a href="#cse">CSE Pack</a>
-        <a href="#ee">Electrical Pack</a>
-        <a href="#founders">Founders</a>
-    </nav>
+<h1>Engineering Placement Prep</h1>
+<nav>
+<a onclick="showSection('home')">Home</a>
+<a onclick="showSection('login')">Login</a>
+<a onclick="showSection('signup')">Signup</a>
+<a onclick="showSection('dashboard')">Dashboard</a>
+</nav>
 </header>
 
-<section class="hero">
-    <h2>Complete Placement Preparation Platform</h2>
-    <p>CSE & Electrical Core Subjects Structured for Placements</p>
-    <a href="#cse" class="btn">Explore Courses</a>
+<!-- HOME -->
+<section id="home" class="section hero">
+<h2>Complete Placement Preparation Platform</h2>
+<p>All Faculty are from IIT & Industry Experts</p>
+<button class="btn" onclick="showSection('courses')">Explore Courses</button>
 </section>
 
-<!-- ================= CSE PACK ================= -->
+<!-- COURSES -->
+<section id="courses" class="section hidden">
+<h2>CSE Complete Pack</h2>
+<div class="card">
+<p><strong>Subjects Covered:</strong></p>
+<ul>
+<li>DSA</li>
+<li>Operating Systems</li>
+<li>Computer Networks</li>
+<li>DBMS</li>
+<li>Theory of Computation</li>
+</ul>
+<div class="price">₹3999</div>
+<button class="btn" onclick="openPayment('CSE Pack',3999)">Enroll Now</button>
+</div>
 
-<section class="section" id="cse">
-    <h2>CSE Placement Complete Pack</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>Programming & Data Structures</h3>
-            <details>
-                <summary>Syllabus</summary>
-                <ul>
-                    <li>Programming in C</li>
-                    <li>Recursion</li>
-                    <li>Arrays, Stacks, Queues</li>
-                    <li>Linked Lists</li>
-                    <li>Trees, BST</li>
-                    <li>Binary Heaps</li>
-                    <li>Graphs</li>
-                </ul>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Algorithms</h3>
-            <details>
-                <summary>Syllabus</summary>
-                <ul>
-                    <li>Searching & Sorting</li>
-                    <li>Hashing</li>
-                    <li>Time & Space Complexity</li>
-                    <li>Greedy Algorithms</li>
-                    <li>Dynamic Programming</li>
-                    <li>Divide & Conquer</li>
-                    <li>MST & Shortest Path</li>
-                </ul>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Operating Systems</h3>
-            <details>
-                <summary>Syllabus</summary>
-                <ul>
-                    <li>Processes & Threads</li>
-                    <li>IPC & Synchronization</li>
-                    <li>Deadlock</li>
-                    <li>CPU Scheduling</li>
-                    <li>Memory Management</li>
-                    <li>Virtual Memory</li>
-                    <li>File Systems</li>
-                </ul>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Computer Networks</h3>
-            <details>
-                <summary>Syllabus</summary>
-                <ul>
-                    <li>OSI & TCP/IP</li>
-                    <li>Switching Techniques</li>
-                    <li>MAC & Ethernet</li>
-                    <li>Routing Algorithms</li>
-                    <li>IPv4, CIDR, NAT</li>
-                    <li>TCP, UDP</li>
-                    <li>DNS, HTTP, SMTP</li>
-                </ul>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Theory of Computation</h3>
-            <details>
-                <summary>Syllabus</summary>
-                <ul>
-                    <li>Regular Expressions</li>
-                    <li>Finite Automata</li>
-                    <li>CFG & PDA</li>
-                    <li>Pumping Lemma</li>
-                    <li>Turing Machines</li>
-                    <li>Undecidability</li>
-                </ul>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Discrete Mathematics</h3>
-            <details>
-                <summary>Syllabus</summary>
-                <ul>
-                    <li>Logic & Proofs</li>
-                    <li>Sets, Relations, Functions</li>
-                    <li>Graphs</li>
-                    <li>Combinatorics</li>
-                    <li>Groups & Lattices</li>
-                </ul>
-            </details>
-        </div>
-
-    </div>
+<h2>Electrical Core Pack</h2>
+<div class="card">
+<ul>
+<li>Signals & Systems</li>
+<li>Control Systems</li>
+<li>Power Electronics</li>
+<li>Analog & Digital Electronics</li>
+</ul>
+<div class="price">₹3499</div>
+<button class="btn" onclick="openPayment('Electrical Pack',3499)">Enroll Now</button>
+</div>
 </section>
 
-<!-- ================= ELECTRICAL PACK ================= -->
-
-<section class="section" id="ee">
-    <h2>Electrical Core Placement Pack</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>Signals & Systems</h3>
-            <details>
-                <summary>Syllabus</summary>
-                <ul>
-                    <li>LTI Systems</li>
-                    <li>Fourier Series</li>
-                    <li>Laplace & Z Transform</li>
-                    <li>Sampling Theorem</li>
-                </ul>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Control Systems</h3>
-            <details>
-                <summary>Syllabus</summary>
-                <ul>
-                    <li>Transfer Function</li>
-                    <li>Routh Stability</li>
-                    <li>Nyquist & Bode Plot</li>
-                    <li>PID Controllers</li>
-                    <li>State Space Model</li>
-                </ul>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Analog & Digital Electronics</h3>
-            <details>
-                <summary>Syllabus</summary>
-                <ul>
-                    <li>Diode Circuits</li>
-                    <li>Amplifiers</li>
-                    <li>Op-Amps</li>
-                    <li>Logic Circuits</li>
-                    <li>A/D & D/A Converters</li>
-                </ul>
-            </details>
-        </div>
-
-        <div class="card">
-            <h3>Power Electronics</h3>
-            <details>
-                <summary>Syllabus</summary>
-                <ul>
-                    <li>Thyristor, MOSFET, IGBT</li>
-                    <li>Buck, Boost Converters</li>
-                    <li>Rectifiers</li>
-                    <li>Inverters</li>
-                    <li>PWM Techniques</li>
-                </ul>
-            </details>
-        </div>
-
-    </div>
+<!-- LOGIN -->
+<section id="login" class="section hidden">
+<h2>Login</h2>
+<div class="card">
+<input type="email" id="loginEmail" placeholder="Email">
+<input type="password" id="loginPass" placeholder="Password">
+<button class="btn" onclick="login()">Login</button>
+</div>
 </section>
 
-<!-- ================= FOUNDERS ================= -->
+<!-- SIGNUP -->
+<section id="signup" class="section hidden">
+<h2>Signup</h2>
+<div class="card">
+<input type="text" id="signupName" placeholder="Full Name">
+<input type="email" id="signupEmail" placeholder="Email">
+<input type="password" id="signupPass" placeholder="Password">
+<button class="btn" onclick="signup()">Create Account</button>
+</div>
+</section>
 
-<section class="section" id="founders">
-    <h2>Meet The Founders</h2>
+<!-- DASHBOARD -->
+<section id="dashboard" class="section hidden">
+<h2>Student Dashboard</h2>
 
-    <div class="founder-grid">
+<div class="dashboard-box">
+<p>Welcome, <span id="userName"></span></p>
+<p>Your enrolled courses will appear here.</p>
+</div>
 
-        <div class="founder">
-            <h3>Abhay Upadhyay</h3>
-            <p>Co-Founder</p>
-            <a href="https://www.linkedin.com/in/abhay-upadhyay-22a1a7236/" target="_blank">
-                LinkedIn
-            </a>
-        </div>
+<div class="dashboard-box">
+<h3>Available Courses</h3>
+<p>Enroll to unlock full content.</p>
+</div>
+</section>
 
-        <div class="founder">
-            <h3>Anshuman Sharma</h3>
-            <p>Co-Founder</p>
-            <a href="https://www.linkedin.com/in/anshuman-sharma-137018373" target="_blank">
-                LinkedIn
-            </a>
-        </div>
+<!-- FACULTY -->
+<section class="section">
+<h2>Our Faculty</h2>
+<div class="faculty-grid">
+<div class="faculty">
+<h3>IIT Delhi</h3>
+<p>Computer Networks Expert</p>
+</div>
+<div class="faculty">
+<h3>IIT Bombay</h3>
+<p>Control Systems Specialist</p>
+</div>
+<div class="faculty">
+<h3>Industry Expert</h3>
+<p>Ex-Google / Ex-Microsoft</p>
+</div>
+</div>
+</section>
 
-        <div class="founder">
-            <h3>Bhavesh Joshi</h3>
-            <p>Co-Founder</p>
-            <a href="https://www.linkedin.com/in/bhavesh2021" target="_blank">
-                LinkedIn
-            </a>
-        </div>
-
-    </div>
+<!-- PAYMENT -->
+<section id="payment" class="section hidden">
+<div class="payment-box">
+<h2>Secure Payment</h2>
+<p id="courseName"></p>
+<h3 id="coursePrice"></h3>
+<input type="text" placeholder="Card Number">
+<input type="text" placeholder="Expiry MM/YY">
+<input type="text" placeholder="CVV">
+<button class="btn" onclick="completePayment()">Pay Now</button>
+</div>
 </section>
 
 <footer>
 © 2026 Engineering Placement Prep | All Rights Reserved
 </footer>
 
+<script>
+function showSection(id){
+document.querySelectorAll("section").forEach(sec=>sec.classList.add("hidden"));
+document.getElementById(id).classList.remove("hidden");
+}
+
+function signup(){
+let name=document.getElementById("signupName").value;
+let email=document.getElementById("signupEmail").value;
+let pass=document.getElementById("signupPass").value;
+
+localStorage.setItem("userName",name);
+localStorage.setItem("userEmail",email);
+localStorage.setItem("userPass",pass);
+
+alert("Account Created Successfully!");
+showSection("login");
+}
+
+function login(){
+let email=document.getElementById("loginEmail").value;
+let pass=document.getElementById("loginPass").value;
+
+if(email===localStorage.getItem("userEmail") &&
+pass===localStorage.getItem("userPass")){
+document.getElementById("userName").innerText=localStorage.getItem("userName");
+alert("Login Successful!");
+showSection("dashboard");
+}else{
+alert("Invalid Credentials");
+}
+}
+
+function openPayment(course,price){
+document.getElementById("courseName").innerText=course;
+document.getElementById("coursePrice").innerText="₹"+price;
+showSection("payment");
+}
+
+function completePayment(){
+alert("Payment Successful! Course Unlocked.");
+showSection("dashboard");
+}
+</script>
+
 </body>
-                                                </html>
+</html>
