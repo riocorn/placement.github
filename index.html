@@ -16,73 +16,82 @@ scroll-behavior:smooth;
 }
 
 body{
-display:flex;
-background:#f4f6f9;
-color:#333;
-}
-
-/* SIDEBAR */
-.sidebar{
-width:230px;
-height:100vh;
-background:#0d1b2a;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 color:white;
-position:fixed;
-padding-top:40px;
 }
 
-.sidebar h2{
-text-align:center;
-margin-bottom:40px;
+/* NAVBAR */
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
 }
 
-.sidebar button{
-display:block;
-width:85%;
-margin:10px auto;
-padding:12px;
-background:#1b263b;
+.logo{
+font-size:22px;
+font-weight:600;
+}
+
+.menu-btn{
+background:#e63946;
 border:none;
+padding:10px 18px;
+border-radius:6px;
 color:white;
 cursor:pointer;
-border-radius:6px;
+}
+
+.menu{
+position:absolute;
+top:70px;
+right:8%;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(15px);
+padding:20px;
+border-radius:12px;
+display:none;
+flex-direction:column;
+width:200px;
+}
+
+.menu button{
+background:none;
+border:none;
+color:white;
+padding:10px;
+text-align:left;
+cursor:pointer;
 transition:0.3s;
 }
 
-.sidebar button:hover{
-background:#e63946;
-}
-
-/* MAIN CONTENT */
-.main{
-margin-left:230px;
-width:100%;
+.menu button:hover{
+color:#e63946;
 }
 
 /* HERO */
 .hero{
-background:linear-gradient(135deg,#1b263b,#415a77);
-color:white;
-padding:120px 8%;
 text-align:center;
+padding:120px 10%;
 }
 
 .hero h1{
-font-size:44px;
+font-size:48px;
 margin-bottom:20px;
 }
 
 .hero p{
 font-size:18px;
 margin-bottom:25px;
+opacity:0.9;
 }
 
 .btn{
-padding:12px 25px;
+padding:12px 28px;
 background:#e63946;
-color:white;
 border:none;
 border-radius:6px;
+color:white;
 cursor:pointer;
 transition:0.3s;
 }
@@ -94,7 +103,8 @@ background:#c1121f;
 
 /* SECTION */
 .section{
-padding:80px 8%;
+padding:80px 10%;
+display:none;
 }
 
 .section h2{
@@ -103,6 +113,7 @@ margin-bottom:40px;
 font-size:32px;
 }
 
+/* CARDS */
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -110,10 +121,10 @@ gap:30px;
 }
 
 .card{
-background:white;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(15px);
 padding:30px;
-border-radius:12px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+border-radius:15px;
 transition:0.3s;
 }
 
@@ -127,11 +138,12 @@ margin-bottom:15px;
 }
 
 .price{
-color:#e63946;
+color:#ffd166;
 font-weight:bold;
 margin-bottom:15px;
 }
 
+/* FACULTY */
 .faculty-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -139,70 +151,68 @@ gap:30px;
 }
 
 .faculty{
-background:white;
+background:rgba(255,255,255,0.08);
 padding:30px;
+border-radius:15px;
 text-align:center;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+transition:0.3s;
 }
 
+.faculty img{
+width:130px;
+height:130px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:15px;
+border:3px solid #e63946;
+}
+
+.faculty:hover{
+transform:translateY(-8px);
+}
+
+/* FORM */
 input{
 width:100%;
-padding:10px;
+padding:12px;
 margin:10px 0;
-border-radius:5px;
-border:1px solid #ccc;
-}
-
-.hidden{
-display:none;
-}
-
-.dashboard-box{
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+border-radius:6px;
+border:none;
 }
 
 .payment-box{
 max-width:420px;
 margin:auto;
-background:white;
+background:rgba(255,255,255,0.08);
 padding:35px;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
+border-radius:15px;
 text-align:center;
 }
 
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
-text-align:center;
-}
-
-.stat-box{
-background:white;
+.dashboard-box{
+background:rgba(255,255,255,0.08);
 padding:30px;
-border-radius:12px;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
+border-radius:15px;
+text-align:center;
 }
 
 footer{
-background:#0d1b2a;
-color:white;
 text-align:center;
-padding:20px;
+padding:30px;
+opacity:0.8;
 }
 </style>
 </head>
 
 <body>
 
-<!-- SIDEBAR -->
-<div class="sidebar">
-<h2>Placement Prep</h2>
+<!-- TOP BAR -->
+<div class="topbar">
+<div class="logo">Engineering Placement Prep</div>
+<button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+</div>
+
+<div class="menu" id="menu">
 <button onclick="showSection('home')">Home</button>
 <button onclick="showSection('courses')">Courses</button>
 <button onclick="showSection('faculty')">Faculty</button>
@@ -211,38 +221,16 @@ padding:20px;
 <button onclick="showSection('dashboard')">Dashboard</button>
 </div>
 
-<div class="main">
-
 <!-- HOME -->
 <section id="home" class="hero">
 <h1>Complete Placement Preparation Platform</h1>
-<p>Structured preparation for CSE & Electrical Engineering Students</p>
+<p>Structured roadmap for CSE & Electrical Engineering students.</p>
 <button class="btn" onclick="showSection('courses')">Explore Courses</button>
 </section>
 
-<section class="section">
-<h2>Why Choose Us?</h2>
-<div class="stats">
-<div class="stat-box"><h3>5000+</h3><p>Students Trained</p></div>
-<div class="stat-box"><h3>300+</h3><p>Interview Questions</p></div>
-<div class="stat-box"><h3>50+</h3><p>Mock Tests</p></div>
-<div class="stat-box"><h3>95%</h3><p>Success Rate</p></div>
-</div>
-</section>
-
-<section class="section">
-<h2>Structured Roadmap</h2>
-<div class="cards">
-<div class="card"><h3>Step 1</h3><p>Foundation in Core Subjects</p></div>
-<div class="card"><h3>Step 2</h3><p>Advanced Problem Solving</p></div>
-<div class="card"><h3>Step 3</h3><p>Mock Interviews</p></div>
-<div class="card"><h3>Step 4</h3><p>Final Placement Strategy</p></div>
-</div>
-</section>
-
 <!-- COURSES -->
-<section id="courses" class="section hidden">
-<h2>Our Courses</h2>
+<section id="courses" class="section">
+<h2>Our Programs</h2>
 
 <div class="cards">
 
@@ -283,40 +271,31 @@ padding:20px;
 <button class="btn" onclick="openPayment('Test Series',999)">Start</button>
 </div>
 
-<div class="card">
-<h3>Final Year Placement Bootcamp</h3>
-<ul>
-<li>Live Sessions</li>
-<li>Resume Building</li>
-<li>Mock Interviews</li>
-<li>Personal Mentorship</li>
-</ul>
-<div class="price">₹9999</div>
-<button class="btn" onclick="openPayment('Bootcamp',9999)">Apply</button>
-</div>
-
 </div>
 </section>
 
 <!-- FACULTY -->
-<section id="faculty" class="section hidden">
+<section id="faculty" class="section">
 <h2>Our Faculty (IIT & Industry Experts)</h2>
 
 <div class="faculty-grid">
 
 <div class="faculty">
+<img src="a.jpg" alt="Abhay">
 <h3>Abhay Upadhyay</h3>
 <p>IIT Mentor</p>
 <a href="https://www.linkedin.com/in/abhay-upadhyay-22a1a7236/" target="_blank">LinkedIn</a>
 </div>
 
 <div class="faculty">
+<img src="b.jpg" alt="Anshuman">
 <h3>Anshuman Sharma</h3>
 <p>Technical Expert</p>
 <a href="https://www.linkedin.com/in/anshuman-sharma-137018373" target="_blank">LinkedIn</a>
 </div>
 
 <div class="faculty">
+<img src="c.jpg" alt="Bhavesh">
 <h3>Bhavesh Joshi</h3>
 <p>Industry Interview Specialist</p>
 <a href="https://www.linkedin.com/in/bhavesh2021" target="_blank">LinkedIn</a>
@@ -326,24 +305,24 @@ padding:20px;
 </section>
 
 <!-- LOGIN -->
-<section id="login" class="section hidden">
+<section id="login" class="section">
 <h2>Login</h2>
-<input type="email" id="loginEmail" placeholder="Email">
-<input type="password" id="loginPass" placeholder="Password">
+<input id="loginEmail" placeholder="Email">
+<input id="loginPass" type="password" placeholder="Password">
 <button class="btn" onclick="login()">Login</button>
 </section>
 
 <!-- SIGNUP -->
-<section id="signup" class="section hidden">
+<section id="signup" class="section">
 <h2>Create Account</h2>
-<input type="text" id="signupName" placeholder="Full Name">
-<input type="email" id="signupEmail" placeholder="Email">
-<input type="password" id="signupPass" placeholder="Password">
+<input id="signupName" placeholder="Full Name">
+<input id="signupEmail" placeholder="Email">
+<input id="signupPass" type="password" placeholder="Password">
 <button class="btn" onclick="signup()">Signup</button>
 </section>
 
 <!-- DASHBOARD -->
-<section id="dashboard" class="section hidden">
+<section id="dashboard" class="section">
 <h2>Student Dashboard</h2>
 <div class="dashboard-box">
 <p>Welcome, <span id="userName"></span></p>
@@ -352,7 +331,7 @@ padding:20px;
 </section>
 
 <!-- PAYMENT -->
-<section id="payment" class="section hidden">
+<section id="payment" class="section">
 <div class="payment-box">
 <h2>Secure Payment</h2>
 <p id="courseName"></p>
@@ -368,26 +347,30 @@ padding:20px;
 © 2026 Engineering Placement Prep | All Rights Reserved
 </footer>
 
-</div>
-
 <script>
+function toggleMenu(){
+let menu=document.getElementById("menu");
+menu.style.display = menu.style.display==="flex" ? "none":"flex";
+}
+
 function showSection(id){
-document.querySelectorAll(".main section").forEach(sec=>sec.classList.add("hidden"));
-document.getElementById(id).classList.remove("hidden");
+document.querySelectorAll(".section, .hero").forEach(sec=>sec.style.display="none");
+document.getElementById(id).style.display="block";
+document.getElementById("menu").style.display="none";
 }
 
 function signup(){
-localStorage.setItem("name",document.getElementById("signupName").value);
-localStorage.setItem("email",document.getElementById("signupEmail").value);
-localStorage.setItem("pass",document.getElementById("signupPass").value);
+localStorage.setItem("name",signupName.value);
+localStorage.setItem("email",signupEmail.value);
+localStorage.setItem("pass",signupPass.value);
 alert("Account Created!");
 showSection("login");
 }
 
 function login(){
-if(document.getElementById("loginEmail").value===localStorage.getItem("email") &&
-document.getElementById("loginPass").value===localStorage.getItem("pass")){
-document.getElementById("userName").innerText=localStorage.getItem("name");
+if(loginEmail.value===localStorage.getItem("email") &&
+loginPass.value===localStorage.getItem("pass")){
+userName.innerText=localStorage.getItem("name");
 showSection("dashboard");
 }else{
 alert("Invalid Credentials");
@@ -395,8 +378,8 @@ alert("Invalid Credentials");
 }
 
 function openPayment(name,price){
-document.getElementById("courseName").innerText=name;
-document.getElementById("coursePrice").innerText="₹"+price;
+courseName.innerText=name;
+coursePrice.innerText="₹"+price;
 showSection("payment");
 }
 
