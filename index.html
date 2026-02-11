@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +18,10 @@
 body{
     background:#f4f6f9;
     color:#333;
+    line-height:1.6;
 }
 
-/* ================= HEADER ================= */
-
+/* HEADER */
 header{
     background:#0d1b2a;
     color:white;
@@ -30,20 +29,12 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-header h1{
-    font-size:20px;
 }
 
 nav a{
     color:white;
     margin-left:25px;
     text-decoration:none;
-    font-weight:500;
     transition:0.3s;
 }
 
@@ -51,8 +42,7 @@ nav a:hover{
     color:#e63946;
 }
 
-/* ================= HERO ================= */
-
+/* HERO */
 .hero{
     background:linear-gradient(135deg,#1b263b,#415a77);
     color:white;
@@ -65,19 +55,14 @@ nav a:hover{
     margin-bottom:20px;
 }
 
-.hero p{
-    font-size:18px;
-    margin-bottom:30px;
-}
-
 .btn{
-    padding:12px 28px;
+    padding:10px 22px;
     background:#e63946;
     color:white;
     text-decoration:none;
-    border-radius:6px;
-    margin:10px;
+    border-radius:5px;
     display:inline-block;
+    margin-top:15px;
     transition:0.3s;
 }
 
@@ -86,72 +71,60 @@ nav a:hover{
     transform:translateY(-3px);
 }
 
-/* ================= SECTIONS ================= */
-
+/* SECTION */
 .section{
     padding:70px 8%;
 }
 
 .section h2{
     text-align:center;
-    margin-bottom:50px;
-    font-size:30px;
+    margin-bottom:40px;
 }
 
+/* CARDS */
 .cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
 }
 
 .card{
     background:white;
-    padding:30px;
+    padding:25px;
     border-radius:12px;
     box-shadow:0 8px 25px rgba(0,0,0,0.08);
     transition:0.3s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-6px);
 }
 
 .card h3{
     margin-bottom:15px;
 }
 
-.card ul{
-    margin-bottom:20px;
+/* SUBJECT DETAILS */
+details{
+    margin-bottom:15px;
 }
 
-.card ul li{
+summary{
+    font-weight:600;
+    cursor:pointer;
+    padding:8px 0;
+}
+
+details ul{
     margin-left:20px;
-    margin-bottom:8px;
+    margin-top:8px;
 }
 
-.price{
-    font-weight:700;
-    margin-bottom:15px;
+details ul li{
+    margin-bottom:6px;
 }
 
-/* ================= TESTIMONIAL ================= */
-
-.testimonial{
-    background:#e9ecef;
-    text-align:center;
-}
-
-.testimonial p{
-    margin-bottom:15px;
-    font-style:italic;
-}
-
-/* ================= FOUNDERS ================= */
-
-.founders{
-    text-align:center;
-}
-
+/* FOUNDERS */
 .founder-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -160,53 +133,28 @@ nav a:hover{
 
 .founder{
     background:white;
-    padding:30px;
-    border-radius:15px;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
     box-shadow:0 8px 25px rgba(0,0,0,0.08);
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
     transition:0.3s;
 }
 
 .founder:hover{
-    transform:translateY(-8px);
-}
-
-.founder h3{
-    margin-bottom:10px;
-}
-
-.founder p{
-    margin-bottom:20px;
-    color:#555;
+    transform:translateY(-6px);
 }
 
 .founder a{
-    text-decoration:none;
+    display:inline-block;
+    margin-top:15px;
+    padding:8px 15px;
     background:#0077b5;
     color:white;
-    padding:10px 18px;
+    text-decoration:none;
     border-radius:5px;
-    transition:0.3s;
 }
 
-.founder a:hover{
-    background:#005582;
-}
-
-/* ================= CONTACT ================= */
-
-.contact{
-    text-align:center;
-}
-
-.contact p{
-    margin:10px 0;
-}
-
-/* ================= FOOTER ================= */
-
+/* FOOTER */
 footer{
     background:#0d1b2a;
     color:white;
@@ -214,15 +162,10 @@ footer{
     padding:20px;
 }
 
-/* ================= RESPONSIVE ================= */
-
+/* RESPONSIVE */
 @media(max-width:900px){
     .founder-grid{
         grid-template-columns:1fr;
-    }
-
-    .hero h2{
-        font-size:30px;
     }
 }
 </style>
@@ -233,99 +176,198 @@ footer{
 <header>
     <h1>Engineering Placement Prep</h1>
     <nav>
-        <a href="#programs">Programs</a>
-        <a href="#bootcamp">Bootcamp</a>
+        <a href="#cse">CSE Pack</a>
+        <a href="#ee">Electrical Pack</a>
         <a href="#founders">Founders</a>
-        <a href="#contact">Contact</a>
     </nav>
 </header>
 
 <section class="hero">
-    <h2>From Classroom to Placement</h2>
-    <p>Structured preparation for CSE & Electrical Engineering Students</p>
-    <a href="#programs" class="btn">Explore Programs</a>
-    <a href="#bootcamp" class="btn">Join Bootcamp</a>
+    <h2>Complete Placement Preparation Platform</h2>
+    <p>CSE & Electrical Core Subjects Structured for Placements</p>
+    <a href="#cse" class="btn">Explore Courses</a>
 </section>
 
-<section class="section" id="programs">
-    <h2>Our Core Programs</h2>
+<!-- ================= CSE PACK ================= -->
+
+<section class="section" id="cse">
+    <h2>CSE Placement Complete Pack</h2>
+
     <div class="cards">
 
         <div class="card">
-            <h3>CSE Placement Complete Pack</h3>
-            <ul>
-                <li>DSA & Algorithms</li>
-                <li>Operating Systems</li>
-                <li>Computer Networks</li>
-                <li>Theory of Computation</li>
-                <li>Discrete Mathematics</li>
-                <li>300+ Interview Questions</li>
-            </ul>
-            <div class="price">₹3999</div>
-            <a href="#" class="btn">Enroll Now</a>
+            <h3>Programming & Data Structures</h3>
+            <details>
+                <summary>Syllabus</summary>
+                <ul>
+                    <li>Programming in C</li>
+                    <li>Recursion</li>
+                    <li>Arrays, Stacks, Queues</li>
+                    <li>Linked Lists</li>
+                    <li>Trees, BST</li>
+                    <li>Binary Heaps</li>
+                    <li>Graphs</li>
+                </ul>
+            </details>
         </div>
 
         <div class="card">
-            <h3>Electrical Core Placement Pack</h3>
-            <ul>
-                <li>Signals & Systems</li>
-                <li>Control Systems</li>
-                <li>Analog & Digital Electronics</li>
-                <li>Power Electronics</li>
-                <li>Core Company Question Bank</li>
-            </ul>
-            <div class="price">₹3499</div>
-            <a href="#" class="btn">Enroll Now</a>
+            <h3>Algorithms</h3>
+            <details>
+                <summary>Syllabus</summary>
+                <ul>
+                    <li>Searching & Sorting</li>
+                    <li>Hashing</li>
+                    <li>Time & Space Complexity</li>
+                    <li>Greedy Algorithms</li>
+                    <li>Dynamic Programming</li>
+                    <li>Divide & Conquer</li>
+                    <li>MST & Shortest Path</li>
+                </ul>
+            </details>
         </div>
 
         <div class="card">
-            <h3>Interview MCQ Test Series</h3>
-            <ul>
-                <li>Topic-wise MCQs</li>
-                <li>Full-Length Mock Tests</li>
-                <li>Aptitude & Reasoning</li>
-                <li>Performance Analytics</li>
-            </ul>
-            <div class="price">₹999</div>
-            <a href="#" class="btn">Start Test Series</a>
+            <h3>Operating Systems</h3>
+            <details>
+                <summary>Syllabus</summary>
+                <ul>
+                    <li>Processes & Threads</li>
+                    <li>IPC & Synchronization</li>
+                    <li>Deadlock</li>
+                    <li>CPU Scheduling</li>
+                    <li>Memory Management</li>
+                    <li>Virtual Memory</li>
+                    <li>File Systems</li>
+                </ul>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Computer Networks</h3>
+            <details>
+                <summary>Syllabus</summary>
+                <ul>
+                    <li>OSI & TCP/IP</li>
+                    <li>Switching Techniques</li>
+                    <li>MAC & Ethernet</li>
+                    <li>Routing Algorithms</li>
+                    <li>IPv4, CIDR, NAT</li>
+                    <li>TCP, UDP</li>
+                    <li>DNS, HTTP, SMTP</li>
+                </ul>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Theory of Computation</h3>
+            <details>
+                <summary>Syllabus</summary>
+                <ul>
+                    <li>Regular Expressions</li>
+                    <li>Finite Automata</li>
+                    <li>CFG & PDA</li>
+                    <li>Pumping Lemma</li>
+                    <li>Turing Machines</li>
+                    <li>Undecidability</li>
+                </ul>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Discrete Mathematics</h3>
+            <details>
+                <summary>Syllabus</summary>
+                <ul>
+                    <li>Logic & Proofs</li>
+                    <li>Sets, Relations, Functions</li>
+                    <li>Graphs</li>
+                    <li>Combinatorics</li>
+                    <li>Groups & Lattices</li>
+                </ul>
+            </details>
         </div>
 
     </div>
 </section>
 
-<section class="section" id="bootcamp">
-    <h2>Final Year Placement Bootcamp</h2>
+<!-- ================= ELECTRICAL PACK ================= -->
+
+<section class="section" id="ee">
+    <h2>Electrical Core Placement Pack</h2>
+
     <div class="cards">
+
         <div class="card">
-            <h3>6-Month Structured Program</h3>
-            <ul>
-                <li>Weekly Live Sessions</li>
-                <li>Resume Optimization</li>
-                <li>Mock Technical & HR Interviews</li>
-                <li>Personal Mentorship</li>
-                <li>Placement Readiness Score</li>
-            </ul>
-            <div class="price">₹9999</div>
-            <a href="#" class="btn">Apply Now</a>
+            <h3>Signals & Systems</h3>
+            <details>
+                <summary>Syllabus</summary>
+                <ul>
+                    <li>LTI Systems</li>
+                    <li>Fourier Series</li>
+                    <li>Laplace & Z Transform</li>
+                    <li>Sampling Theorem</li>
+                </ul>
+            </details>
         </div>
+
+        <div class="card">
+            <h3>Control Systems</h3>
+            <details>
+                <summary>Syllabus</summary>
+                <ul>
+                    <li>Transfer Function</li>
+                    <li>Routh Stability</li>
+                    <li>Nyquist & Bode Plot</li>
+                    <li>PID Controllers</li>
+                    <li>State Space Model</li>
+                </ul>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Analog & Digital Electronics</h3>
+            <details>
+                <summary>Syllabus</summary>
+                <ul>
+                    <li>Diode Circuits</li>
+                    <li>Amplifiers</li>
+                    <li>Op-Amps</li>
+                    <li>Logic Circuits</li>
+                    <li>A/D & D/A Converters</li>
+                </ul>
+            </details>
+        </div>
+
+        <div class="card">
+            <h3>Power Electronics</h3>
+            <details>
+                <summary>Syllabus</summary>
+                <ul>
+                    <li>Thyristor, MOSFET, IGBT</li>
+                    <li>Buck, Boost Converters</li>
+                    <li>Rectifiers</li>
+                    <li>Inverters</li>
+                    <li>PWM Techniques</li>
+                </ul>
+            </details>
+        </div>
+
     </div>
 </section>
 
-<section class="section testimonial">
-    <h2>What Students Say</h2>
-    <p>"This platform helped me crack my core electrical interview in 3 months!"</p>
-    <p>"Best structured DSA content for placements."</p>
-</section>
+<!-- ================= FOUNDERS ================= -->
 
-<section class="section founders" id="founders">
+<section class="section" id="founders">
     <h2>Meet The Founders</h2>
+
     <div class="founder-grid">
 
         <div class="founder">
             <h3>Abhay Upadhyay</h3>
             <p>Co-Founder</p>
             <a href="https://www.linkedin.com/in/abhay-upadhyay-22a1a7236/" target="_blank">
-                LinkedIn Profile
+                LinkedIn
             </a>
         </div>
 
@@ -333,7 +375,7 @@ footer{
             <h3>Anshuman Sharma</h3>
             <p>Co-Founder</p>
             <a href="https://www.linkedin.com/in/anshuman-sharma-137018373" target="_blank">
-                LinkedIn Profile
+                LinkedIn
             </a>
         </div>
 
@@ -341,21 +383,16 @@ footer{
             <h3>Bhavesh Joshi</h3>
             <p>Co-Founder</p>
             <a href="https://www.linkedin.com/in/bhavesh2021" target="_blank">
-                LinkedIn Profile
+                LinkedIn
             </a>
         </div>
 
     </div>
 </section>
 
-<section class="section contact" id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: support@placementprep.com</p>
-</section>
-
 <footer>
-    © 2026 Engineering Placement Prep | All Rights Reserved
+© 2026 Engineering Placement Prep | All Rights Reserved
 </footer>
 
 </body>
-</html>
+                                                </html>
