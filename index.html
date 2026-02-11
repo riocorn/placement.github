@@ -12,6 +12,7 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
@@ -25,6 +26,11 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 8%;
+position:fixed;
+width:100%;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+z-index:1000;
 }
 
 .logo{
@@ -41,7 +47,7 @@ color:white;
 cursor:pointer;
 }
 
-/* SIDEBAR MENU */
+/* SIDEBAR */
 .menu{
 position:fixed;
 top:0;
@@ -49,9 +55,9 @@ right:-260px;
 width:250px;
 height:100vh;
 background:#1b263b;
-padding-top:80px;
+padding-top:100px;
 transition:0.4s;
-z-index:1000;
+z-index:1001;
 }
 
 .menu.active{
@@ -78,7 +84,7 @@ background:#e63946;
 /* SECTIONS */
 .section{
 display:none;
-padding:100px 10%;
+padding:120px 10%;
 min-height:100vh;
 }
 
@@ -89,17 +95,18 @@ display:block;
 /* HERO */
 .hero{
 text-align:center;
-padding-top:120px;
+padding-top:150px;
 }
 
 .hero h1{
-font-size:46px;
+font-size:48px;
 margin-bottom:20px;
 }
 
 .hero p{
+font-size:18px;
 opacity:0.9;
-margin-bottom:25px;
+margin-bottom:30px;
 }
 
 .btn{
@@ -115,6 +122,39 @@ transition:0.3s;
 .btn:hover{
 background:#c1121f;
 transform:translateY(-3px);
+}
+
+/* FEATURES */
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:60px;
+}
+
+.feature-box{
+background:rgba(255,255,255,0.08);
+padding:30px;
+border-radius:15px;
+text-align:center;
+}
+
+/* STATS */
+.stats{
+display:flex;
+justify-content:space-around;
+flex-wrap:wrap;
+margin-top:60px;
+}
+
+.stat{
+text-align:center;
+margin:20px;
+}
+
+.stat h2{
+font-size:36px;
+color:#ffd166;
 }
 
 /* CARDS */
@@ -221,16 +261,73 @@ opacity:0.8;
 </div>
 
 <!-- HOME -->
-<section id="home" class="section active hero">
-<h1>Complete Placement Preparation Platform</h1>
-<p>Structured roadmap for CSE & Electrical Engineering students.</p>
-<button class="btn" onclick="showSection('courses')">Explore Courses</button>
+<section id="home" class="section active">
+
+<div class="hero">
+<h1>India’s Complete Placement Preparation Platform</h1>
+<p>Structured roadmap for CSE & Electrical students with IIT Mentors & Industry Experts.</p>
+<button class="btn" onclick="showSection('courses')">Explore Programs</button>
+</div>
+
+<div class="features">
+<div class="feature-box">
+<h3>Structured Curriculum</h3>
+<p>Topic-wise roadmap covering core subjects and DSA.</p>
+</div>
+<div class="feature-box">
+<h3>Live + Recorded Classes</h3>
+<p>Learn at your own pace with complete support.</p>
+</div>
+<div class="feature-box">
+<h3>Interview Preparation</h3>
+<p>Mock interviews & real industry questions.</p>
+</div>
+</div>
+
+<div class="stats">
+<div class="stat">
+<h2>500+</h2>
+<p>Students Mentored</p>
+</div>
+<div class="stat">
+<h2>1000+</h2>
+<p>Interview Questions</p>
+</div>
+<div class="stat">
+<h2>95%</h2>
+<p>Selection Success Rate</p>
+</div>
+</div>
+
+<h2 style="margin-top:80px;text-align:center;">Meet Our Founders</h2>
+
+<div class="faculty-grid">
+
+<div class="faculty">
+<img src="a.jpg">
+<h3>Abhay Upadhyay</h3>
+<p>IIT Mentor</p>
+</div>
+
+<div class="faculty">
+<img src="b.jpg">
+<h3>Anshuman Sharma</h3>
+<p>Technical Expert</p>
+</div>
+
+<div class="faculty">
+<img src="c.jpg">
+<h3>Bhavesh Joshi</h3>
+<p>Industry Specialist</p>
+</div>
+
+</div>
+
 </section>
 
-<!-- COURSES -->
+<!-- COURSES (UNCHANGED CONTENT) -->
 <section id="courses" class="section">
 <h2>Our Programs</h2>
-
 <div class="cards">
 
 <div class="card">
@@ -273,31 +370,27 @@ opacity:0.8;
 </div>
 </section>
 
-<!-- FACULTY -->
+<!-- FACULTY PAGE -->
 <section id="faculty" class="section">
 <h2>Our Faculty (IIT & Industry Experts)</h2>
-
 <div class="faculty-grid">
 
 <div class="faculty">
-<img src="a.jpg" alt="Abhay">
+<img src="a.jpg">
 <h3>Abhay Upadhyay</h3>
 <p>IIT Mentor</p>
-<a href="https://www.linkedin.com/in/abhay-upadhyay-22a1a7236/" target="_blank" style="color:#ffd166;">LinkedIn</a>
 </div>
 
 <div class="faculty">
-<img src="b.jpg" alt="Anshuman">
+<img src="b.jpg">
 <h3>Anshuman Sharma</h3>
 <p>Technical Expert</p>
-<a href="https://www.linkedin.com/in/anshuman-sharma-137018373" target="_blank" style="color:#ffd166;">LinkedIn</a>
 </div>
 
 <div class="faculty">
-<img src="c.jpg" alt="Bhavesh">
+<img src="c.jpg">
 <h3>Bhavesh Joshi</h3>
-<p>Industry Interview Specialist</p>
-<a href="https://www.linkedin.com/in/bhavesh2021" target="_blank" style="color:#ffd166;">LinkedIn</a>
+<p>Industry Specialist</p>
 </div>
 
 </div>
