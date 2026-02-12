@@ -1,0 +1,89 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+min-height:100vh;
+}
+
+/* HEADER */
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+position:fixed;
+width:100%;
+z-index:1000;
+}
+
+.logo{
+font-size:20px;
+font-weight:600;
+}
+
+.menu-btn{
+background:#e63946;
+border:none;
+padding:10px 15px;
+border-radius:6px;
+color:white;
+cursor:pointer;
+}
+
+/* SIDEBAR */
+.sidebar{
+position:fixed;
+right:-250px;
+top:0;
+width:250px;
+height:100vh;
+background:#1b263b;
+padding-top:100px;
+transition:0.4s;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.sidebar.active{
+right:0;
+}
+
+.sidebar button{
+width:80%;
+margin:10px 0;
+padding:12px;
+background:#415a77;
+border:none;
+border-radius:6px;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.sidebar button:hover{
+background:#e63946;
+}
+
+/* SECTIONS */
+main{
+padding-top:120px;
+}
+
+.section{
+display:none;
+padding:40px 10%;
+min-height:100vh;
+}
+
+.section.active{
+display:block;
+}
