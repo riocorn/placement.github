@@ -3,251 +3,276 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IIT Placement Portal</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>IITian Academy - GATE Preparation</title>
 <link rel="stylesheet" href="css/style.css">
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body class="dark">
 
-<!-- ================= NAVBAR ================= -->
-<header class="navbar">
-    <div class="logo">IIT Placement Portal</div>
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<div class="navbar">
+    <div class="logo">IITian Academy</div>
 
     <div class="nav-actions">
-        <button id="themeBtn">🌙</button>
-        <button id="menuBtn">☰</button>
-        <button id="loginBtn" class="primary-btn">Login</button>
+        <button id="menuToggle">☰</button>
+        <button id="themeToggle">Theme</button>
+        <button id="loginBtn">Login</button>
+        <button id="signupBtn">Signup</button>
     </div>
-</header>
+</div>
 
-<!-- ================= SIDEBAR ================= -->
-<aside id="sidebar" class="sidebar">
-    <button id="closeSidebar">✖</button>
+<!-- =========================================================
+     SIDEBAR
+========================================================= -->
+
+<div class="sidebar" id="sidebar">
     <a href="#home">Home</a>
-    <a href="#programs">Programs</a>
-    <a href="#why">Why Us</a>
-    <a href="#placements">Placements</a>
+    <a href="#courses">Courses</a>
     <a href="#faculty">Faculty</a>
-    <a href="#dashboard">Student Dashboard</a>
-    <a href="#admin">Admin Panel</a>
+    <a href="#testimonials">Testimonials</a>
     <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
-</aside>
+    <a href="#dashboard">Dashboard</a>
+</div>
 
-<main>
+<!-- =========================================================
+     HERO SECTION
+========================================================= -->
 
-<!-- ================= HERO SECTION ================= -->
-<section id="home" class="section hero">
-    <div class="hero-content">
-        <h1>India’s Premium IITian Placement Platform</h1>
-        <p>Crack Top Product Companies with Structured Learning</p>
-        <button class="primary-btn">Explore Programs</button>
+<section class="section hero" id="home">
+    <h1>Master GATE with IITians</h1>
+    <p>Structured courses, Industry mentors & proven success strategy.</p>
+    <button class="primary-btn">Explore Courses</button>
+
+    <div class="stats">
+        <div class="stat-box">
+            <h2 class="counter" data-target="5000">0</h2>
+            <p>Students Enrolled</p>
+        </div>
+
+        <div class="stat-box">
+            <h2 class="counter" data-target="120">0</h2>
+            <p>Top Rankers</p>
+        </div>
+
+        <div class="stat-box">
+            <h2 class="counter" data-target="15">0</h2>
+            <p>Expert Faculty</p>
+        </div>
     </div>
 </section>
 
-<!-- ================= STATS ================= -->
-<section class="section stats">
-    <div class="stat-box">
-        <h2 class="counter" data-target="5000">0</h2>
-        <p>Students Trained</p>
+<!-- =========================================================
+     COURSES SECTION
+========================================================= -->
+
+<section class="section alt-bg" id="courses">
+    <h2>Our Courses</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>GATE CS Complete</h3>
+            <ul>
+                <li>Data Structures</li>
+                <li>Algorithms</li>
+                <li>Operating Systems</li>
+                <li>Computer Networks</li>
+            </ul>
+            <div class="price">₹ 15,999</div>
+            <button class="primary-btn">Enroll Now</button>
+        </div>
+
+        <div class="card">
+            <h3>GATE EE Complete</h3>
+            <ul>
+                <li>Signals & Systems</li>
+                <li>Power Systems</li>
+                <li>Control Systems</li>
+                <li>Electrical Machines</li>
+            </ul>
+            <div class="price">₹ 14,999</div>
+            <button class="primary-btn">Enroll Now</button>
+        </div>
+
+        <div class="card">
+            <h3>GATE ME Complete</h3>
+            <ul>
+                <li>Thermodynamics</li>
+                <li>Fluid Mechanics</li>
+                <li>Engineering Mathematics</li>
+                <li>Strength of Materials</li>
+            </ul>
+            <div class="price">₹ 13,999</div>
+            <button class="primary-btn">Enroll Now</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================================================
+     FACULTY SECTION
+========================================================= -->
+
+<section class="section" id="faculty">
+    <h2>Meet Our Founders</h2>
+
+    <div class="grid">
+
+        <div class="faculty-card">
+            <img src="assets/a.jpg" alt="Abhay">
+            <h3>Abhay Upadhyay</h3>
+            <p>IIT Graduate | Communication Expert</p>
+            <a href="#">LinkedIn Profile</a>
+        </div>
+
+        <div class="faculty-card">
+            <img src="assets/b.jpg" alt="Anshuman">
+            <h3>Anshuman</h3>
+            <p>IIT Graduate | Core CS Specialist</p>
+            <a href="#">LinkedIn Profile</a>
+        </div>
+
+        <div class="faculty-card">
+            <img src="assets/c.jpg" alt="Bhavesh">
+            <h3>Bhavesh</h3>
+            <p>IIT Graduate | Industry Expert</p>
+            <a href="#">LinkedIn Profile</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================================================
+     TESTIMONIALS
+========================================================= -->
+
+<section class="section alt-bg" id="testimonials">
+    <h2>Student Testimonials</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <p>"Got AIR 78 in GATE CS thanks to structured mentorship!"</p>
+            <h4>- Rahul</h4>
+        </div>
+
+        <div class="card">
+            <p>"Best online GATE preparation platform."</p>
+            <h4>- Sneha</h4>
+        </div>
+
+        <div class="card">
+            <p>"Faculty support is next level."</p>
+            <h4>- Amit</h4>
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================================================
+     FAQ SECTION
+========================================================= -->
+
+<section class="section" id="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+        <h4>Are live classes available?</h4>
+        <p>Yes, we provide live interactive sessions.</p>
+
+        <h4>Is doubt solving included?</h4>
+        <p>Yes, daily doubt sessions with faculty.</p>
+
+        <h4>Do you provide mock tests?</h4>
+        <p>Yes, full-length and topic-wise tests available.</p>
+    </div>
+</section>
+
+<!-- =========================================================
+     CONTACT SECTION
+========================================================= -->
+
+<section class="section alt-bg" id="contact">
+    <h2>Contact Us</h2>
+
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message"></textarea>
+        <button class="primary-btn">Send Message</button>
+    </form>
+</section>
+
+<!-- =========================================================
+     USER DASHBOARD
+========================================================= -->
+
+<section class="section" id="dashboard">
+    <h2>User Dashboard</h2>
+
+    <div id="userDashboard">
+        <p>Welcome to your learning dashboard.</p>
+        <button class="primary-btn">My Courses</button>
+        <button class="primary-btn">Performance</button>
+        <button class="primary-btn">Logout</button>
     </div>
 
-    <div class="stat-box">
-        <h2 class="counter" data-target="1200">0</h2>
-        <p>Placements</p>
-    </div>
+    <hr style="margin:40px 0;">
 
-    <div class="stat-box">
-        <h2 class="counter" data-target="45">0</h2>
-        <p>Highest Package (LPA)</p>
-    </div>
+    <h2>Admin Dashboard</h2>
 
-    <div class="stat-box">
-        <h2 class="counter" data-target="300">0</h2>
-        <p>Hiring Partners</p>
+    <div id="adminDashboard">
+        <p>Manage Courses & Students</p>
+        <button class="primary-btn">Add Course</button>
+        <button class="primary-btn">Manage Users</button>
+        <button class="primary-btn">View Payments</button>
     </div>
 </section>
 
-<!-- ================= PROGRAMS ================= -->
-<section id="programs" class="section">
-<h2>Premium Programs</h2>
+<!-- =========================================================
+     LOGIN MODAL
+========================================================= -->
 
-<div class="grid">
-
-<div class="card">
-<h3>Complete DSA Bootcamp</h3>
-<p>6 Month Structured Placement Track</p>
-<ul>
-<li>500+ Problems</li>
-<li>Weekly Mock Tests</li>
-<li>Live Classes</li>
-</ul>
-<p class="price">₹4,999</p>
-<button class="primary-btn">Enroll Now</button>
+<div class="modal" id="loginModal">
+    <div class="modal-box">
+        <span id="closeLogin" style="float:right;cursor:pointer;">✖</span>
+        <h3>Login</h3>
+        <input type="email" id="loginEmail" placeholder="Email">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button id="loginSubmit" class="primary-btn">Login</button>
+    </div>
 </div>
 
-<div class="card">
-<h3>Core CS Mastery</h3>
-<p>Networks, OS, DBMS, Digital Comm</p>
-<ul>
-<li>Concept + Interview Prep</li>
-<li>Company Specific Questions</li>
-<li>Revision Sheets</li>
-</ul>
-<p class="price">₹6,999</p>
-<button class="primary-btn">Enroll Now</button>
+<!-- =========================================================
+     SIGNUP MODAL
+========================================================= -->
+
+<div class="modal" id="signupModal">
+    <div class="modal-box">
+        <span id="closeSignup" style="float:right;cursor:pointer;">✖</span>
+        <h3>Signup</h3>
+        <input type="email" id="signupEmail" placeholder="Email">
+        <input type="password" id="signupPassword" placeholder="Password">
+        <button id="signupSubmit" class="primary-btn">Create Account</button>
+    </div>
 </div>
 
-<div class="card">
-<h3>Interview Accelerator</h3>
-<p>1:1 Mock Interviews</p>
-<ul>
-<li>System Design</li>
-<li>Resume Review</li>
-<li>HR Training</li>
-</ul>
-<p class="price">₹2,999</p>
-<button class="primary-btn">Enroll Now</button>
-</div>
-
-</div>
-</section>
-
-<!-- ================= WHY US ================= -->
-<section id="why" class="section alt-bg">
-<h2>Why Choose Us?</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>IITian Mentorship</h3>
-<p>All faculty are IIT Graduates & Industry Experts</p>
-</div>
-
-<div class="card">
-<h3>Structured Curriculum</h3>
-<p>No random content. Step-by-step roadmap.</p>
-</div>
-
-<div class="card">
-<h3>Placement Focused</h3>
-<p>Designed for FAANG & Product Companies</p>
-</div>
-
-<div class="card">
-<h3>Mock Interview System</h3>
-<p>Real interview simulation environment</p>
-</div>
-
-</div>
-</section>
-
-<!-- ================= PLACEMENTS ================= -->
-<section id="placements" class="section">
-<h2>Recent Placement Highlights</h2>
-
-<div class="grid">
-<div class="card">Amazon - 32 LPA</div>
-<div class="card">Google - 45 LPA</div>
-<div class="card">Microsoft - 38 LPA</div>
-<div class="card">Flipkart - 28 LPA</div>
-</div>
-</section>
-
-<!-- ================= FACULTY ================= -->
-<section id="faculty" class="section alt-bg">
-<h2>Meet Our IITian Founders</h2>
-
-<div class="grid">
-
-<div class="faculty-card">
-<img src="assets/images/a.jpg">
-<h3>Abhay</h3>
-<p>IIT Graduate | 6G & Communication Expert</p>
-</div>
-
-<div class="faculty-card">
-<img src="assets/images/b.jpg">
-<h3>Anshuman</h3>
-<p>IIT Alumni | Industry Mentor</p>
-</div>
-
-<div class="faculty-card">
-<img src="assets/images/c.jpg">
-<h3>Bhavesh</h3>
-<p>IITian | Placement Strategy Specialist</p>
-</div>
-
-</div>
-</section>
-
-<!-- ================= DASHBOARD PREVIEW ================= -->
-<section id="dashboard" class="section">
-<h2>Student Dashboard Preview</h2>
-
-<div class="grid">
-<div class="card">Course Progress - 70%</div>
-<div class="card">Upcoming Session - Sunday</div>
-<div class="card">Mock Interview - Booked</div>
-</div>
-</section>
-
-<!-- ================= ADMIN PANEL ================= -->
-<section id="admin" class="section alt-bg">
-<h2>Admin Panel Preview</h2>
-
-<div class="grid">
-<div class="card">Total Students - 5000</div>
-<div class="card">Revenue - ₹45,00,000</div>
-<div class="card">Active Courses - 12</div>
-</div>
-</section>
-
-<!-- ================= FAQ ================= -->
-<section id="faq" class="section">
-<h2>Frequently Asked Questions</h2>
-
-<div class="faq">
-<h4>Is this beginner friendly?</h4>
-<p>Yes. Structured roadmap from basics to advanced.</p>
-
-<h4>Do you provide placement assistance?</h4>
-<p>Yes. Resume + Mock + Referral Guidance.</p>
-
-<h4>Are classes live?</h4>
-<p>Yes. Live + Recorded access.</p>
-</div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section id="contact" class="section alt-bg">
-<h2>Contact Us</h2>
-
-<input type="text" placeholder="Full Name">
-<input type="email" placeholder="Email">
-<textarea placeholder="Your Message"></textarea>
-<button class="primary-btn">Submit</button>
-</section>
-
-</main>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
-<p>© 2026 IIT Placement Portal</p>
+    <p>© 2026 IITian Academy. All Rights Reserved.</p>
 </footer>
 
-<!-- ================= LOGIN MODAL ================= -->
-<div id="modal" class="modal">
-<div class="modal-box">
-<button id="closeModal">✖</button>
-<h3>Login</h3>
-<input type="email" placeholder="Email">
-<input type="password" placeholder="Password">
-<button class="primary-btn">Login</button>
-</div>
-</div>
+<!-- =========================================================
+     SCRIPT
+========================================================= -->
 
 <script src="js/app.js"></script>
 
