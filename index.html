@@ -3,65 +3,250 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Engineering Placement Prep</title>
+<title>IIT Placement Preparation Portal</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+}
 
-<!-- CSS -->
-<link rel="stylesheet" href="css/style.css">
+/* Toggle Menu */
+.menu-btn{
+    font-size:28px;
+    padding:15px;
+    cursor:pointer;
+}
+
+/* Sidebar */
+.sidebar{
+    position:fixed;
+    left:-250px;
+    top:0;
+    width:250px;
+    height:100%;
+    background:#111;
+    transition:0.3s;
+    padding-top:60px;
+}
+
+.sidebar a{
+    display:block;
+    padding:15px;
+    color:white;
+    text-decoration:none;
+    border-bottom:1px solid #333;
+}
+
+.sidebar a:hover{
+    background:#444;
+}
+
+section{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.hero{
+    padding-top:80px;
+}
+
+.faculty-container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.faculty-card{
+    background:rgba(255,255,255,0.1);
+    padding:20px;
+    border-radius:12px;
+    width:260px;
+}
+
+.faculty-card img{
+    width:100%;
+    border-radius:10px;
+}
+
+.course-box{
+    background:rgba(255,255,255,0.1);
+    padding:20px;
+    border-radius:10px;
+    margin:20px auto;
+    max-width:600px;
+}
+
+input{
+    padding:10px;
+    width:250px;
+    border:none;
+    border-radius:5px;
+}
+
+button{
+    padding:10px 20px;
+    background:orange;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    color:white;
+}
+
+button:hover{
+    background:darkorange;
+}
+
+.otp-box{
+    display:none;
+    margin-top:20px;
+}
+</style>
+
+<script>
+function toggleMenu(){
+    let sidebar=document.getElementById("sidebar");
+    if(sidebar.style.left==="0px"){
+        sidebar.style.left="-250px";
+    }else{
+        sidebar.style.left="0px";
+    }
+}
+
+/* OTP SYSTEM (Frontend Demo) */
+let generatedOTP="";
+
+function sendOTP(){
+    let email=document.getElementById("email").value;
+    if(email===""){
+        alert("Please enter email");
+        return;
+    }
+
+    generatedOTP=Math.floor(100000+Math.random()*900000);
+    alert("Demo OTP sent to email: "+generatedOTP);
+
+    document.getElementById("otpSection").style.display="block";
+}
+
+function verifyOTP(){
+    let enteredOTP=document.getElementById("otpInput").value;
+
+    if(enteredOTP==generatedOTP){
+        alert("Login Successful");
+        location.href="#dashboard";
+    }else{
+        alert("Invalid OTP");
+    }
+}
+</script>
+
 </head>
-
 <body>
 
-<!-- HEADER -->
-<header class="header">
-    <div class="logo">Engineering Placement Prep</div>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-</header>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<!-- SIDEBAR -->
-<nav class="sidebar" id="sidebar">
-    <button onclick="navigate('home')">Home</button>
-    <button onclick="navigate('courses')">Courses</button>
-    <button onclick="navigate('faculty')">Faculty</button>
-    <button onclick="navigate('login')">Login</button>
-    <button onclick="navigate('signup')">Signup</button>
-    <button onclick="navigate('dashboard')">Dashboard</button>
-</nav>
+<div class="sidebar" id="sidebar">
+<a href="#home">Home</a>
+<a href="#courses">Courses</a>
+<a href="#faculty">Faculty</a>
+<a href="#login">Login</a>
+<a href="#signup">Signup</a>
+<a href="#dashboard">Dashboard</a>
+</div>
 
-<!-- MAIN CONTENT -->
-<main>
-
-<section id="home" class="section active">
-    <h1>Welcome to India's Most Structured Placement Platform</h1>
-    <p>Complete preparation roadmap for CSE & Electrical students.</p>
+<!-- HOME -->
+<section id="home" class="hero">
+<h1>IIT Placement Preparation Portal</h1>
+<p><strong>All Faculty are from IIT and Industry Experts</strong></p>
+<p>Comprehensive preparation for Placements, Core Subjects & Competitive Exams</p>
 </section>
 
-<section id="courses" class="section">
-    <h1>Courses</h1>
+<!-- FACULTY -->
+<section id="faculty">
+<h2>Our Co-Founders</h2>
+
+<div class="faculty-container">
+
+<div class="faculty-card">
+<img src="assets/images/a.jpg" alt="Abhay">
+<h3>Abhay</h3>
+<p>IIT Graduate & Communication Systems Expert</p>
+</div>
+
+<div class="faculty-card">
+<img src="assets/images/b.jpg" alt="Anshuman">
+<h3>Anshuman</h3>
+<p>IIT Alumni & Industry Mentor</p>
+</div>
+
+<div class="faculty-card">
+<img src="assets/images/c.jpg" alt="Bhavesh">
+<h3>Bhavesh</h3>
+<p>IITian & Placement Strategy Specialist</p>
+</div>
+
+</div>
 </section>
 
-<section id="faculty" class="section">
-    <h1>Faculty</h1>
+<!-- COURSES -->
+<section id="courses">
+<h2>Courses Offered</h2>
+
+<div class="course-box">
+<h3>Data Structures & Algorithms</h3>
+<p>Complete Placement Focused DSA Course</p>
+<p><strong>Fee: ₹4,999</strong></p>
+</div>
+
+<div class="course-box">
+<h3>Core Subjects (ECE/CS)</h3>
+<p>Digital Communication, Networks, OS, DBMS</p>
+<p><strong>Fee: ₹6,999</strong></p>
+</div>
+
+<div class="course-box">
+<h3>Mock Interviews & Resume Building</h3>
+<p>Industry Level 1:1 Mentorship</p>
+<p><strong>Fee: ₹2,999</strong></p>
+</div>
+
 </section>
 
-<section id="login" class="section">
-    <h1>Login</h1>
+<!-- LOGIN WITH OTP -->
+<section id="login">
+<h2>Login with Email OTP</h2>
+
+<input type="email" id="email" placeholder="Enter Email"><br><br>
+<button onclick="sendOTP()">Send OTP</button>
+
+<div class="otp-box" id="otpSection">
+<br>
+<input type="text" id="otpInput" placeholder="Enter OTP"><br><br>
+<button onclick="verifyOTP()">Verify OTP</button>
+</div>
+
 </section>
 
-<section id="signup" class="section">
-    <h1>Signup</h1>
+<!-- SIGNUP -->
+<section id="signup">
+<h2>Signup</h2>
+<input type="text" placeholder="Full Name"><br><br>
+<input type="email" placeholder="Email"><br><br>
+<input type="password" placeholder="Password"><br><br>
+<button>Register</button>
 </section>
 
-<section id="dashboard" class="section">
-    <h1>Dashboard</h1>
+<!-- DASHBOARD -->
+<section id="dashboard">
+<h2>Student Dashboard</h2>
+<p>Welcome to your personalized dashboard.</p>
+<p>Track Progress | Access Lectures | Download Materials</p>
 </section>
-
-</main>
-
-<!-- JS -->
-<script src="js/app.js"></script>
 
 </body>
 </html>
