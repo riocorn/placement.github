@@ -1,388 +1,345 @@
-/* =====================================================
+/* =========================================================
    GLOBAL RESET
-===================================================== */
+========================================================= */
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-font-family:'Poppins',sans-serif;
-transition:0.4s ease;
-line-height:1.6;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7fb;
+    color: #333;
+    line-height: 1.6;
 }
 
-/* =====================================================
-   THEME
-===================================================== */
+/* =========================================================
+   CONTAINER
+========================================================= */
 
-body.dark{
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-color:white;
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
 }
 
-body.light{
-background:#f4f4f4;
-color:#111;
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* =====================================================
-   NAVBAR
-===================================================== */
-
-.navbar{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:70px;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:0 40px;
-z-index:1000;
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2c3e50;
 }
 
-.logo{
-font-weight:700;
-font-size:20px;
-letter-spacing:1px;
+.logo span {
+    color: #0077ff;
 }
 
-.nav-actions button{
-margin-left:10px;
-padding:8px 16px;
-border:none;
-border-radius:25px;
-cursor:pointer;
-transition:0.3s;
-font-weight:500;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* =====================================================
-   BUTTONS
-===================================================== */
-
-.primary-btn{
-background:linear-gradient(45deg,#ff7e5f,#feb47b);
-border:none;
-padding:10px 22px;
-border-radius:30px;
-color:white;
-cursor:pointer;
-transition:0.3s;
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
 }
 
-.primary-btn:hover{
-transform:translateY(-3px);
-box-shadow:0 8px 20px rgba(0,0,0,0.3);
+nav ul li a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
-/* =====================================================
-   SIDEBAR
-===================================================== */
-
-.sidebar{
-position:fixed;
-top:0;
-left:-260px;
-width:250px;
-height:100%;
-background:#111;
-padding:30px 20px;
-transition:0.4s;
-z-index:999;
-overflow-y:auto;
+nav ul li a:hover {
+    color: #0077ff;
 }
 
-.sidebar.active{
-left:0;
+/* =========================================================
+   HERO SECTION
+========================================================= */
+
+.hero {
+    background: linear-gradient(120deg, #eaf2ff, #ffffff);
+    padding: 100px 0;
+    text-align: center;
 }
 
-.sidebar a{
-display:block;
-color:white;
-text-decoration:none;
-padding:12px 10px;
-margin:5px 0;
-border-radius:8px;
-transition:0.3s;
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: #2c3e50;
 }
 
-.sidebar a:hover{
-background:#333;
+.hero p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: auto;
+    color: #555;
 }
 
-/* =====================================================
-   SECTIONS
-===================================================== */
-
-.section{
-padding:120px 20px 80px 20px;
-text-align:center;
+.hero-btn {
+    margin-top: 30px;
 }
 
-.alt-bg{
-background:rgba(255,255,255,0.05);
+.btn-primary {
+    background: #0077ff;
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero{
-min-height:90vh;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-text-align:center;
+.btn-primary:hover {
+    background: #005ad6;
 }
 
-.hero h1{
-font-size:48px;
-font-weight:800;
-margin-bottom:20px;
+/* =========================================================
+   FEATURES SECTION
+========================================================= */
+
+.features {
+    padding: 80px 0;
 }
 
-.hero p{
-font-size:18px;
-opacity:0.9;
-margin-bottom:30px;
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-/* =====================================================
-   STATS
-===================================================== */
-
-.stats{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:60px;
-margin-top:40px;
+.section-title h2 {
+    font-size: 32px;
+    color: #2c3e50;
 }
 
-.stat-box{
-text-align:center;
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
-.stat-box h2{
-font-size:40px;
-color:#ffb347;
+.feature-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    transition: 0.3s;
 }
 
-/* =====================================================
-   GRID SYSTEM
-===================================================== */
-
-.grid{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:30px;
-margin-top:40px;
+.feature-box:hover {
+    transform: translateY(-5px);
 }
 
-/* =====================================================
-   CARDS
-===================================================== */
-
-.card{
-background:rgba(255,255,255,0.08);
-padding:25px;
-width:280px;
-border-radius:15px;
-backdrop-filter:blur(10px);
-transition:0.4s;
+.feature-box h3 {
+    margin-bottom: 15px;
+    color: #0077ff;
 }
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 15px 25px rgba(0,0,0,0.3);
+/* =========================================================
+   COURSES SECTION
+========================================================= */
+
+.courses {
+    padding: 80px 0;
+    background: #ffffff;
 }
 
-.card h3{
-margin-bottom:15px;
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
 }
 
-.card ul{
-list-style:none;
-margin:10px 0;
+.course-card {
+    background: #f8fbff;
+    border-radius: 10px;
+    padding: 25px;
+    transition: 0.3s;
+    border: 1px solid #e6ecf5;
 }
 
-.card ul li{
-margin:6px 0;
+.course-card:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-.price{
-font-weight:600;
-margin:10px 0;
+.course-card h4 {
+    margin-bottom: 10px;
+    color: #2c3e50;
 }
 
-/* =====================================================
-   FACULTY
-===================================================== */
-
-.faculty-card{
-background:rgba(255,255,255,0.08);
-padding:20px;
-width:280px;
-border-radius:15px;
-transition:0.4s;
+.course-card p {
+    font-size: 14px;
+    margin-bottom: 15px;
 }
 
-.faculty-card img{
-width:100%;
-border-radius:15px;
-margin-bottom:15px;
+.course-card .btn-small {
+    padding: 8px 15px;
+    background: #0077ff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
 }
 
-.faculty-card:hover{
-transform:translateY(-8px);
+/* =========================================================
+   TESTIMONIAL SECTION
+========================================================= */
+
+.testimonials {
+    padding: 80px 0;
+    background: #f4f7fb;
 }
 
-/* =====================================================
-   FAQ
-===================================================== */
-
-.faq{
-max-width:800px;
-margin:40px auto;
-text-align:left;
+.testimonial-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
 }
 
-.faq h4{
-margin-top:20px;
-font-weight:600;
+.testimonial-card h5 {
+    margin-top: 15px;
+    color: #0077ff;
 }
 
-.faq p{
-opacity:0.8;
-margin-top:5px;
+/* =========================================================
+   STATS SECTION
+========================================================= */
+
+.stats {
+    padding: 70px 0;
+    background: linear-gradient(120deg, #0077ff, #005ad6);
+    color: #fff;
+    text-align: center;
 }
 
-/* =====================================================
-   CONTACT
-===================================================== */
-
-input,textarea{
-display:block;
-width:350px;
-max-width:90%;
-margin:12px auto;
-padding:12px;
-border-radius:8px;
-border:none;
-outline:none;
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
 }
 
-textarea{
-height:120px;
-resize:none;
+.stat-box h2 {
+    font-size: 36px;
 }
 
-/* =====================================================
-   MODAL
-===================================================== */
-
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.7);
-justify-content:center;
-align-items:center;
-z-index:2000;
+.stat-box p {
+    font-size: 16px;
 }
 
-.modal-box{
-background:white;
-color:black;
-padding:30px;
-width:350px;
-border-radius:12px;
-animation:fadeInModal 0.4s ease;
+/* =========================================================
+   CONTACT SECTION
+========================================================= */
+
+.contact {
+    padding: 80px 0;
 }
 
-@keyframes fadeInModal{
-from{transform:translateY(-30px);opacity:0;}
-to{transform:translateY(0);opacity:1;}
+.contact form {
+    max-width: 600px;
+    margin: auto;
 }
 
-/* =====================================================
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.contact button {
+    width: 100%;
+    padding: 12px;
+    background: #0077ff;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.contact button:hover {
+    background: #005ad6;
+}
+
+/* =========================================================
    FOOTER
-===================================================== */
+========================================================= */
 
-footer{
-padding:30px;
-text-align:center;
-background:#111;
-margin-top:60px;
+footer {
+    background: #ffffff;
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid #eee;
 }
 
-/* =====================================================
-   SCROLLBAR
-===================================================== */
-
-::-webkit-scrollbar{
-width:8px;
+footer p {
+    color: #777;
+    font-size: 14px;
 }
 
-::-webkit-scrollbar-track{
-background:#111;
-}
-
-::-webkit-scrollbar-thumb{
-background:#ff7e5f;
-border-radius:10px;
-}
-
-/* =====================================================
+/* =========================================================
    RESPONSIVE DESIGN
-===================================================== */
+========================================================= */
 
-@media(max-width:900px){
+@media(max-width: 768px) {
+    .hero h1 {
+        font-size: 30px;
+    }
 
-.hero h1{
-font-size:32px;
+    nav ul {
+        gap: 15px;
+    }
 }
 
-.stats{
-flex-direction:column;
-align-items:center;
+/* =========================================================
+   EXTRA UI IMPROVEMENTS
+========================================================= */
+
+.card-hover:hover {
+    transform: scale(1.02);
+    transition: 0.3s ease;
 }
 
-.grid{
-flex-direction:column;
-align-items:center;
+.shadow-light {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
 }
 
-.navbar{
-padding:0 20px;
+.rounded {
+    border-radius: 10px;
 }
 
-}
+.mt-20 { margin-top: 20px; }
+.mt-40 { margin-top: 40px; }
+.pt-40 { padding-top: 40px; }
+.pb-40 { padding-bottom: 40px; }
 
-@media(max-width:500px){
+.text-center { text-align: center; }
+.text-primary { color: #0077ff; }
 
-.nav-actions button{
-padding:6px 10px;
-}
-
-.hero h1{
-font-size:26px;
-}
-
-}
+.bg-light { background: #f4f7fb; }
+.bg-white { background: #ffffff; }
