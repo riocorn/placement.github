@@ -2,341 +2,298 @@
    GLOBAL VARIABLES
 ========================================================= */
 
-const body = document.body;
-const sidebar = document.getElementById("sidebar");
-const themeBtn = document.getElementById("themeToggle");
-const loginBtn = document.getElementById("loginBtn");
-const signupBtn = document.getElementById("signupBtn");
-const loginModal = document.getElementById("loginModal");
-const signupModal = document.getElementById("signupModal");
-const closeLogin = document.getElementById("closeLogin");
-const closeSignup = document.getElementById("closeSignup");
-const menuToggle = document.getElementById("menuToggle");
-const counterElements = document.querySelectorAll(".counter");
-const navbar = document.querySelector(".navbar");
+document.addEventListener("DOMContentLoaded", function () {
+
+    const navbar = document.querySelector("header");
+    const mobileToggle = document.querySelector(".mobile-toggle");
+    const navMenu = document.querySelector("nav ul");
+    const counters = document.querySelectorAll(".counter");
+    const scrollElements = document.querySelectorAll(".reveal");
+    const backToTop = document.querySelector(".back-to-top");
+    const themeToggle = document.querySelector(".theme-toggle");
+    const faqItems = document.querySelectorAll(".faq-item");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const courseCards = document.querySelectorAll(".course-card");
+    const testimonialSlides = document.querySelectorAll(".testimonial-card");
+    const contactForm = document.querySelector("#contactForm");
+
+    let testimonialIndex = 0;
 
 /* =========================================================
-   SIDEBAR TOGGLE
+   STICKY NAVBAR SHADOW
 ========================================================= */
 
-function toggleSidebar() {
-    sidebar.classList.toggle("active");
-}
-
-menuToggle?.addEventListener("click", toggleSidebar);
-
-/* =========================================================
-   THEME TOGGLE
-========================================================= */
-
-function toggleTheme() {
-    if (body.classList.contains("dark")) {
-        body.classList.remove("dark");
-        body.classList.add("light");
-        localStorage.setItem("theme", "light");
-    } else {
-        body.classList.remove("light");
-        body.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-    }
-}
-
-themeBtn?.addEventListener("click", toggleTheme);
-
-window.onload = function () {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-        body.classList.remove("dark", "light");
-        body.classList.add(savedTheme);
-    }
-};
-
-/* =========================================================
-   MODAL SYSTEM
-========================================================= */
-
-function openLogin() {
-    loginModal.style.display = "flex";
-}
-
-function openSignup() {
-    signupModal.style.display = "flex";
-}
-
-function closeLoginModal() {
-    loginModal.style.display = "none";
-}
-
-function closeSignupModal() {
-    signupModal.style.display = "none";
-}
-
-loginBtn?.addEventListener("click", openLogin);
-signupBtn?.addEventListener("click", openSignup);
-closeLogin?.addEventListener("click", closeLoginModal);
-closeSignup?.addEventListener("click", closeSignupModal);
-
-window.addEventListener("click", function (e) {
-    if (e.target === loginModal) closeLoginModal();
-    if (e.target === signupModal) closeSignupModal();
-});
-
-/* =========================================================
-   FAKE AUTH SYSTEM (FRONTEND ONLY)
-========================================================= */
-
-function showToast(message) {
-    const toast = document.createElement("div");
-    toast.innerText = message;
-    toast.style.position = "fixed";
-    toast.style.bottom = "20px";
-    toast.style.right = "20px";
-    toast.style.padding = "12px 20px";
-    toast.style.background = "#ff7e5f";
-    toast.style.color = "white";
-    toast.style.borderRadius = "8px";
-    toast.style.zIndex = "3000";
-    document.body.appendChild(toast);
-
-    setTimeout(() => {
-        toast.remove();
-    }, 3000);
-}
-
-function loginUser() {
-    const email = document.getElementById("loginEmail").value;
-    const pass = document.getElementById("loginPassword").value;
-
-    if (email === "" || pass === "") {
-        showToast("Please fill all fields");
-        return;
-    }
-
-    localStorage.setItem("user", email);
-    showToast("Login Successful!");
-    closeLoginModal();
-}
-
-function signupUser() {
-    const email = document.getElementById("signupEmail").value;
-    const pass = document.getElementById("signupPassword").value;
-
-    if (email === "" || pass === "") {
-        showToast("Please fill all fields");
-        return;
-    }
-
-    showToast("Account Created!");
-    closeSignupModal();
-}
-
-document.getElementById("loginSubmit")?.addEventListener("click", loginUser);
-document.getElementById("signupSubmit")?.addEventListener("click", signupUser);
-
-/* =========================================================
-   ANIMATED COUNTERS
-========================================================= */
-
-function animateCounter(counter) {
-    const target = +counter.getAttribute("data-target");
-    let count = 0;
-    const increment = target / 100;
-
-    const update = () => {
-        count += increment;
-        if (count < target) {
-            counter.innerText = Math.floor(count);
-            requestAnimationFrame(update);
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+            navbar.style.boxShadow = "0 4px 15px rgba(0,0,0,0.08)";
         } else {
-            counter.innerText = target;
+            navbar.style.boxShadow = "none";
         }
-    };
-
-    update();
-}
-
-counterElements.forEach(counter => {
-    animateCounter(counter);
-});
-
-/* =========================================================
-   NAVBAR SCROLL EFFECT
-========================================================= */
-
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-        navbar.style.background = "rgba(0,0,0,0.9)";
-    } else {
-        navbar.style.background = "rgba(0,0,0,0.6)";
-    }
-});
-
-/* =========================================================
-   SMOOTH SCROLL FOR LINKS
-========================================================= */
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
-        target?.scrollIntoView({ behavior: "smooth" });
     });
-});
+
+/* =========================================================
+   MOBILE MENU TOGGLE
+========================================================= */
+
+    if (mobileToggle) {
+        mobileToggle.addEventListener("click", function () {
+            navMenu.classList.toggle("active");
+        });
+    }
+
+/* =========================================================
+   SMOOTH SCROLL
+========================================================= */
+
+    document.querySelectorAll("a[href^='#']").forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    });
+
+/* =========================================================
+   HERO TEXT TYPING EFFECT
+========================================================= */
+
+    const typingElement = document.querySelector(".typing-text");
+    const words = ["Crack Exams", "Get Placed", "Build Career", "Achieve Success"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let typingDelay = 100;
+    let erasingDelay = 50;
+    let newWordDelay = 1500;
+
+    function type() {
+        if (typingElement && charIndex < words[wordIndex].length) {
+            typingElement.textContent += words[wordIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, typingDelay);
+        } else {
+            setTimeout(erase, newWordDelay);
+        }
+    }
+
+    function erase() {
+        if (typingElement && charIndex > 0) {
+            typingElement.textContent = words[wordIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, erasingDelay);
+        } else {
+            wordIndex++;
+            if (wordIndex >= words.length) wordIndex = 0;
+            setTimeout(type, typingDelay);
+        }
+    }
+
+    if (typingElement) {
+        type();
+    }
+
+/* =========================================================
+   COUNTER ANIMATION
+========================================================= */
+
+    function animateCounters() {
+        counters.forEach(counter => {
+            counter.innerText = "0";
+            const updateCounter = () => {
+                const target = +counter.getAttribute("data-target");
+                const current = +counter.innerText;
+                const increment = target / 200;
+
+                if (current < target) {
+                    counter.innerText = `${Math.ceil(current + increment)}`;
+                    setTimeout(updateCounter, 10);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCounter();
+        });
+    }
+
+    let counterStarted = false;
+    window.addEventListener("scroll", function () {
+        const statsSection = document.querySelector(".stats");
+        if (statsSection) {
+            const sectionTop = statsSection.offsetTop;
+            if (window.scrollY > sectionTop - window.innerHeight && !counterStarted) {
+                animateCounters();
+                counterStarted = true;
+            }
+        }
+    });
+
+/* =========================================================
+   TESTIMONIAL SLIDER
+========================================================= */
+
+    function showTestimonial(index) {
+        testimonialSlides.forEach(slide => slide.style.display = "none");
+        testimonialSlides[index].style.display = "block";
+    }
+
+    function nextTestimonial() {
+        testimonialIndex++;
+        if (testimonialIndex >= testimonialSlides.length) {
+            testimonialIndex = 0;
+        }
+        showTestimonial(testimonialIndex);
+    }
+
+    if (testimonialSlides.length > 0) {
+        showTestimonial(testimonialIndex);
+        setInterval(nextTestimonial, 4000);
+    }
+
+/* =========================================================
+   COURSE FILTER
+========================================================= */
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const category = this.getAttribute("data-filter");
+
+            courseCards.forEach(card => {
+                if (category === "all" || card.classList.contains(category)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    });
+
+/* =========================================================
+   FORM VALIDATION
+========================================================= */
+
+    if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = document.querySelector("#name").value.trim();
+            const email = document.querySelector("#email").value.trim();
+            const message = document.querySelector("#message").value.trim();
+
+            if (name === "" || email === "" || message === "") {
+                showNotification("Please fill all fields", "error");
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                showNotification("Enter valid email address", "error");
+                return;
+            }
+
+            showNotification("Form submitted successfully!", "success");
+            contactForm.reset();
+        });
+    }
+
+    function validateEmail(email) {
+        const re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+    function revealOnScroll() {
+        scrollElements.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            if (elementTop < window.innerHeight - 100) {
+                el.classList.add("visible");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
 
 /* =========================================================
    FAQ ACCORDION
 ========================================================= */
 
-document.querySelectorAll(".faq h4").forEach(question => {
-    question.addEventListener("click", () => {
-        const answer = question.nextElementSibling;
-        answer.style.display =
-            answer.style.display === "block" ? "none" : "block";
+    faqItems.forEach(item => {
+        item.addEventListener("click", function () {
+            this.classList.toggle("active");
+            const content = this.querySelector(".faq-content");
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
     });
-});
 
 /* =========================================================
-   TYPING HERO EFFECT
+   BACK TO TOP
 ========================================================= */
 
-const typingText = document.getElementById("typingText");
-const phrases = [
-    "Learn from IITians",
-    "Master GATE Preparation",
-    "Industry Expert Mentorship",
-    "Structured Course Roadmap"
-];
-
-let phraseIndex = 0;
-let letterIndex = 0;
-
-function typeEffect() {
-    if (!typingText) return;
-
-    if (letterIndex < phrases[phraseIndex].length) {
-        typingText.innerHTML += phrases[phraseIndex].charAt(letterIndex);
-        letterIndex++;
-        setTimeout(typeEffect, 80);
-    } else {
-        setTimeout(eraseEffect, 1500);
-    }
-}
-
-function eraseEffect() {
-    if (letterIndex > 0) {
-        typingText.innerHTML =
-            phrases[phraseIndex].substring(0, letterIndex - 1);
-        letterIndex--;
-        setTimeout(eraseEffect, 40);
-    } else {
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        setTimeout(typeEffect, 200);
-    }
-}
-
-typeEffect();
-
-/* =========================================================
-   BACK TO TOP BUTTON
-========================================================= */
-
-const topBtn = document.createElement("button");
-topBtn.innerText = "↑";
-topBtn.style.position = "fixed";
-topBtn.style.bottom = "30px";
-topBtn.style.right = "30px";
-topBtn.style.padding = "10px 15px";
-topBtn.style.borderRadius = "50%";
-topBtn.style.border = "none";
-topBtn.style.background = "#ff7e5f";
-topBtn.style.color = "white";
-topBtn.style.cursor = "pointer";
-topBtn.style.display = "none";
-document.body.appendChild(topBtn);
-
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
-    }
-});
-
-topBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-/* =========================================================
-   SECTION ACTIVE HIGHLIGHT
-========================================================= */
-
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".sidebar a");
-
-window.addEventListener("scroll", () => {
-    let current = "";
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        if (window.scrollY >= sectionTop) {
-            current = section.getAttribute("id");
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
+            backToTop.style.display = "block";
+        } else {
+            backToTop.style.display = "none";
         }
     });
 
-    navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
+    if (backToTop) {
+        backToTop.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+
+/* =========================================================
+   LIGHT/DARK TOGGLE
+========================================================= */
+
+    if (themeToggle) {
+        themeToggle.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+        });
+    }
+
+/* =========================================================
+   NOTIFICATION SYSTEM
+========================================================= */
+
+    function showNotification(message, type) {
+        const notification = document.createElement("div");
+        notification.classList.add("notification");
+        notification.classList.add(type);
+        notification.innerText = message;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.classList.add("show");
+        }, 100);
+
+        setTimeout(() => {
+            notification.classList.remove("show");
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
+    }
+
+/* =========================================================
+   EXTRA UI ENHANCEMENTS
+========================================================= */
+
+    window.addEventListener("scroll", function () {
+        const hero = document.querySelector(".hero");
+        if (hero) {
+            hero.style.backgroundPositionY = window.scrollY * 0.3 + "px";
         }
     });
-});
 
-/* =========================================================
-   DASHBOARD SWITCH SYSTEM
-========================================================= */
-
-function showDashboard(type) {
-    const userDash = document.getElementById("userDashboard");
-    const adminDash = document.getElementById("adminDashboard");
-
-    if (type === "admin") {
-        userDash.style.display = "none";
-        adminDash.style.display = "block";
-    } else {
-        adminDash.style.display = "none";
-        userDash.style.display = "block";
-    }
-}
-
-/* =========================================================
-   LOGOUT SYSTEM
-========================================================= */
-
-function logoutUser() {
-    localStorage.removeItem("user");
-    showToast("Logged Out Successfully");
-}
-
-document.getElementById("logoutBtn")?.addEventListener("click", logoutUser);
-
-/* =========================================================
-   LOADER
-========================================================= */
-
-window.addEventListener("load", () => {
-    const loader = document.getElementById("loader");
-    if (loader) {
-        loader.style.display = "none";
-    }
-});
-
-/* =========================================================
-   SIMPLE FORM VALIDATION
-========================================================= */
-
-document.querySelectorAll("form").forEach(form => {
-    form.addEventListener("submit", e => {
-        e.preventDefault();
-        showToast("Form Submitted Successfully!");
-    });
 });
